@@ -55,7 +55,6 @@ ax1.set_ylabel("Acceleration x (m/s^2)")
 ax1.set_title("Suodatettu kiihtyvyysdata (askelmäärän määrittämiseen)")
 ax1.grid(True)
 ax1.legend()
-st.pyplot(fig1)
 
 #  - Askelmäärä Fourier-analyysillä (Z-akseli) – tyyli kuten esimerkissä
 
@@ -77,7 +76,6 @@ ax2.set_ylabel("Teho")
 ax2.set_title("Valitun kiihtyvyyskomponentin tehospektritiheys (z)")
 ax2.set_xlim(0, 10)
 ax2.grid(True)
-st.pyplot(fig2)
 
 # etsitään maksimia kävelylle järkevältä alueelta
 mask_f = (freq > 0.7) & (freq < 3.0)
@@ -131,7 +129,7 @@ step_length_Fourier = (total_distance_km * 1000) / steps_fft if steps_fft != 0 e
 
 # - Tulokset (numerot)
 
-st.subheader("Tulokset (numerot)")
+st.subheader("Päivän kävelydata")
 
 st.write("Askelmäärä (suodatettu data, x):", f"{steps_filtered:.0f}")
 st.write("Askelmäärä (Fourier, z):", f"{steps_fft:.0f}")
@@ -146,8 +144,10 @@ st.write(
     f"{((step_length_Fourier + step_length_m) / 2):.2f} m (keskiarvo)"
 )
 
-st.write(f"Dominoiva taajuus (z): {f_max:.3f} Hz")
-st.write(f"Jaksonaika (askelaika): {T:.3f} s")
+st.subheader("Suodatettu kiihtyvyysdata")
+st.pyplot(fig1)
+st.subheader("Tehospektri")
+st.pyplot(fig2)
 
 # - Reitti kartalla
 
