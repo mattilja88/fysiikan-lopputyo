@@ -9,8 +9,10 @@ from math import radians, cos, sin, asin, sqrt
 
 st.title("Fysiikan loppuprojekti")
 
-df_linear = pd.read_csv("./data/linear.csv")
-df_gps = pd.read_csv("./data/location.csv")
+url_linear = "https://raw.githubusercontent.com/mattilja88/fysiikan-lopputyo/refs/heads/main/data/linear.csv"
+url_gbs = "https://raw.githubusercontent.com/mattilja88/fysiikan-lopputyo/refs/heads/main/data/location.csv"
+df_linear = pd.read_csv(url_linear)
+df_gps = pd.read_csv(url_gbs)
 
 # Lyhyt perustelu eri akseleille:
 st.caption(
